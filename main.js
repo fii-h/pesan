@@ -1,8 +1,12 @@
-let input = document.querySelector("#nama")
-let text = document.querySelector("#text")
-let btn = document.querySelector("form button")
-
-btn.addEventListener("click", () => {
-  input.value = ""
-  text.value = ""
+document.querySelector(".btn-reset").addEventListener("click", () => {
+  run()
 })
+
+function run(){
+  setTimeout(() => {
+    document.querySelector("#appVersion").value = navigator.appVersion
+  }, 500)
+}
+
+let appVersion = document.querySelector("#appVersion").value = navigator.appVersion
+
