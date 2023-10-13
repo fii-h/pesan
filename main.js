@@ -59,13 +59,8 @@ function ubahTanggal(iso8601) {
   const bulan = date.getMonth() + 1; // Perlu ditambahkan 1 karena bulan dimulai dari 0 (Januari).
   const hari = date.getDate();
 
-  // Mendapatkan komponen waktu
-  const jam = date.getUTCHours();
-  const menit = date.getUTCMinutes();
-  const detik = date.getUTCSeconds();
-
   // Membuat format tanggal dan waktu
-  const formatted = `${tahun}-${bulan}-${hari} [ ${jam}:${menit} ]`;
+  const formatted = `${tahun}-${bulan}-${hari}`;
 
   return formatted
 }
