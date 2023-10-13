@@ -28,7 +28,7 @@ fetch('https://script.google.com/macros/s/AKfycbzheao91uG250fTXCC5P9Ke3cyEk7Mz6b
     </div>`
     for (let dt of data.reverse()) {
       str += `
-      <div class="card mt-2">
+      <div class="card mt-2 animate__animated animate__slideInUp">
         <div class="card-header">
           @${dt[1]}
         </div>
