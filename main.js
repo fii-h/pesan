@@ -23,7 +23,9 @@ fetch('https://script.google.com/macros/s/AKfycbzheao91uG250fTXCC5P9Ke3cyEk7Mz6b
   .then(response => response.json())
   .then(data => {
 
-    let str = `<h3>${data.length} Pesan 📥</h3>`
+    let str = `<h3>${data.length} Pesan 📥</h3> <div class="input-group mb-3">
+      <input type="text" class="form-control inputCari" placeholder="Cari..." onkeyup="cari(this)" value='' aria-label="Username" aria-describedby="basic-addon1">
+    </div>`
     for (let dt of data.reverse()) {
       str += `
       <div class="card mt-2">
@@ -81,3 +83,17 @@ function ubahTanggal(iso8601) {
 </div>
 
 */
+
+// funsi cari
+function cari(teks) {
+
+  let cards = document.querySelectorAll(".card")
+
+  for (let card of cards) {
+    if (card.textContent.toLowerCase().includes(teks.value.toLowerCase())) {
+      card.style.display = "block"
+    } else {
+      card.style.display = "none"
+    }
+  }
+}
