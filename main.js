@@ -60,12 +60,12 @@ function ubahTanggal(iso8601) {
   const hari = date.getDate();
 
   // Mendapatkan komponen waktu
-  const jam = date.getHours();
-  const menit = date.getMinutes();
-  const detik = date.getSeconds();
+  const jam = date.getUTCHours();
+  const menit = date.getUTCMinutes();
+  const detik = date.getUTCSeconds();
 
   // Membuat format tanggal dan waktu
-  const formatted = `${tahun}-${bulan}-${hari} | ${jam}:${menit}`;
+  const formatted = `${tahun}-${bulan}-${hari} [ ${jam}:${menit} ]`;
 
   return formatted
 }
