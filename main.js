@@ -33,13 +33,28 @@ fetch('https://script.google.com/macros/s/AKfycbzheao91uG250fTXCC5P9Ke3cyEk7Mz6b
           @${dt[1]}
         </div>
         <div class="card-body">
-          <p class="card-text">${dt[2]}</p>
+          <p class="card-text">${cekTeks(dt[2])} ${dt[2].length >= 70 ? `<em class="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal${dt[2].length}">Baca...</em>` : ''}</p>
         <footer class="mt-3 blockquote-footer">Tanggal: <cite title="Source Title">${ubahTanggal(dt[0])}</cite></footer>
         </div>
       </div>
       `
+     document.body.querySelector(".popUp").innerHTML +=(`<div class="modal fade" id="exampleModal${dt[2].length}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Dikirim Oleh <b>@${dt[1]}</b></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">${dt[2]}
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+          </div>
+        </div>
+      </div>`)
     }
-
+ 
 
     document.querySelector(".boxs").innerHTML = str
 
@@ -78,6 +93,20 @@ function ubahTanggal(iso8601) {
 </div>
 
 */
+
+function cekTeks(teks){
+  if (teks.length >= 250) {
+    console.log(teks.slice(0, 250))
+    
+    return teks.slice(0, 250)
+    
+    
+  }
+}
+
+function readMore(){
+  
+}
 
 // funsi cari
 function cari(teks) {
