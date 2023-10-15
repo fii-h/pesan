@@ -33,7 +33,7 @@ fetch('https://script.google.com/macros/s/AKfycbzheao91uG250fTXCC5P9Ke3cyEk7Mz6b
           @${dt[1]}
         </div>
         <div class="card-body">
-          <p class="card-text">${cekTeks(dt[2])} ${dt[2].length >= 70 ? `<em class="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal${dt[2].length}">Baca...</em>` : ''}</p>
+          <p class="card-text">${cekTeks(dt[2])} ${dt[2].length >= 250 ? `<em class="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal${dt[2].length}">Baca...</em>` : ''}</p>
         <footer class="mt-3 blockquote-footer">Tanggal: <cite title="Source Title">${ubahTanggal(dt[0])}</cite></footer>
         </div>
       </div>
@@ -97,10 +97,9 @@ function ubahTanggal(iso8601) {
 function cekTeks(teks){
   if (teks.length >= 250) {
     console.log(teks.slice(0, 250))
-    
     return teks.slice(0, 250)
-    
-    
+  }else{
+    return teks
   }
 }
 
